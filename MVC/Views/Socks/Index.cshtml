@@ -12,7 +12,9 @@
 
 @foreach (var sock in Model)
 {
-    <p>
-        @sock.Brand - @sock.Size - @sock.Price - @sock.OnStock
-    </p>
+    <a asp-action="GetById" asp-route-id="@sock.Id" asp-controller="Socks">
+        <p>
+            @sock.Brand - @sock.Size - @sock.Price Kč - skladem: @sock.OnStock ks
+        </p>
+    </a>
 }
