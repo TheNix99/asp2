@@ -1,4 +1,4 @@
-var builder = WebApplication.CreateBuilder(args);
+﻿var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -31,8 +31,12 @@ app.MapGet("/weatherforecast", () =>
         .ToArray();
     return forecast;
 })
-.WithName("GetWeatherForecast");
-//
+.WithName("GetWeatherForecast")
+.WithDescription("Předpověď počasí")
+.WithOpenApi();
+
+app.MapGet("/", () => $"API běží, nyní je {DateTime.Now}").WithOpenApi();
+
 
 app.Run();
 
