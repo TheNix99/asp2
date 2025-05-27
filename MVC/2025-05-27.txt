@@ -1,0 +1,1 @@
+Index action called in NewSocksController

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MVC.Data;
+using MVC.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddControllers(); // Adds API Controllers
+
+builder.Services.AddSingleton<SimpleFileLogger>(); // Registering the SimpleFileLogger as a singleton service
 
 var app = builder.Build();
 
